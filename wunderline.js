@@ -21,4 +21,7 @@ app.version(pkg.version)
   .command('set-platform', 'Set your preferred application platform')
   .command('flush', 'Flush the application cache')
 
+// default
+if( ! process.argv[ 2 ] ) process.argv[ 2 ] = 'inbox'
+
 app.parse(process.argv)
