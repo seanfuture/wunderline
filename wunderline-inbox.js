@@ -34,6 +34,7 @@ function main () {
         }
       ], function (err, results) {
         if (err) process.exit(1)
+        if (!! results[0].unauthorized) throw new Error('Unauthorized - Please ensure you are authenticated')
         list.tasks = results[0]
         list.subtasks = results[1]
         callback(null, list)
