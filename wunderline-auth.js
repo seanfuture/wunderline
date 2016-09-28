@@ -28,7 +28,7 @@ var questions = [
 
 console.log(wrap('Please create a Wunderlist Application before you proceed, you can do so over here: https://developer.wunderlist.com/apps/new, once that is done please enter your access token and client id below.'))
 
-inquirer.prompt(questions, function (answers) {
+inquirer.prompt(questions).then(function (answers) {
   request.get({
     json: true,
     url: 'https://a.wunderlist.com/api/v1/user',
@@ -37,8 +37,11 @@ inquirer.prompt(questions, function (answers) {
       'X-Client-ID': answers.client_id
     }
   }, function (err, res, body) {
-    if (err || body.error || body.invalid_request) {
+    if (err || body.error) {
       console.error(JSON.stringify(err || body.error, null, 2))
+      process.exit(1)
+    } else if (body.invalid_request || body.unauthorized) {
+      console.error('Authentication failed (wrong CLIENT ID and/or ACCESS TOKEN)!')
       process.exit(1)
     }
     conf.set('authenticated_at', new Date())

@@ -1,12 +1,11 @@
 # Wunderline
 
-> Wunderlist for your command line!
+> [Wunderlist](https://www.wunderlist.com/) for your command line!
 
 [![npm](http://img.shields.io/npm/v/wunderline.svg?style=flat)](https://www.npmjs.com/package/wunderline)
-[![Build Status](https://travis-ci.org/we-are-next/wunderline.svg?branch=master)](https://travis-ci.org/we-are-next/wunderline)
-[![Code Climate](https://codeclimate.com/github/we-are-next/wunderline/badges/gpa.svg)](https://codeclimate.com/github/we-are-next/wunderline)
-[![Dependency Status](https://david-dm.org/we-are-next/wunderline.svg)](https://david-dm.org/we-are-next/wunderline)
-[![devDependency Status](https://david-dm.org/we-are-next/wunderline/dev-status.svg)](https://david-dm.org/we-are-next/wunderline#info=devDependencies)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Build Status](https://travis-ci.org/wayneashleyberry/wunderline.svg?branch=master)](https://travis-ci.org/wayneashleyberry/wunderline)
+[![Code Climate](https://codeclimate.com/github/wayneashleyberry/wunderline/badges/gpa.svg)](https://codeclimate.com/github/wayneashleyberry/wunderline)
 
 ## Installation
 
@@ -27,6 +26,10 @@ Once that's done, click `CREATE ACCESS TOKEN` as highlighted here:
 
 ![access-token](http://i.imgur.com/TW3IH8P.png)
 
+Your `ACCESS TOKEN` will show up above
+
+![access-token modal](http://i.imgur.com/1urbelo.png)
+
 Now you can run `wunderline auth` and enter the values.
 
 ## Usage
@@ -38,6 +41,7 @@ Commands:
 
     auth            Authenticate Wunderline
     add [task]      Add a task to your inbox
+    done            Mark a task as done
     inbox           View your inbox
     starred         View starred tasks
     today           View tasks due today
@@ -86,6 +90,16 @@ Due dates are now supported using one of the following options.
 ```sh
 $ wunderline add Hello, World! --today --tomorrow --due 2015-12-25
 ```
+
+### Completing Tasks
+
+Tasks can be completed using the `done` subcommand.
+
+```sh
+$ wunderline done
+```
+
+![completing tasks](https://cloud.githubusercontent.com/assets/4248851/16345815/3261e1a6-3a44-11e6-862a-798930424c14.gif "Completing Tasks")
 
 ### Viewing Lists
 
@@ -152,3 +166,7 @@ want to inspect api requests just set the `NODE_DEBUG` variable.
 ```sh
 $ NODE_DEBUG=request wunderline inbox
 ```
+
+### License
+
+MIT © [Wayne Ashley Berry](https://www.wayneashleyberry.com)
